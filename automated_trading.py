@@ -55,3 +55,10 @@ plt.plot(data['Cumulative Strategy Return'], label='Strategy Return', alpha=0.75
 plt.title("Cumulative Returns")
 plt.legend()
 plt.show()
+
+# Compare the cumulative returns of the strategy vs. holding the market
+total_strategy_return = data['Cumulative Strategy Return'].iloc[-1] - 1
+total_market_return = data['Cumulative Market Return'].iloc[-1] - 1
+
+print(f"Total Strategy Return: {total_strategy_return:.2%}")
+print(f"Total Market Return: {total_market_return:.2%}")
