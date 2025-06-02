@@ -38,3 +38,20 @@ data['Strategy Return'] = data['Position'] * data['Daily Return']
 # Calculate cumulative returns
 data['Cumulative Market Return'] = (1 + data['Daily Return']).cumprod()
 data['Cumulative Strategy Return'] = (1 + data['Strategy Return']).cumprod()
+
+# Plot Stock Price and SMAs
+plt.figure(figsize=(14, 7))
+plt.plot(data['Close'], label='Close Price', alpha=0.5)
+plt.plot(data['SMA50'], label='SMA50', alpha=0.75)
+plt.plot(data['SMA200'], label='SMA200', alpha=0.75)
+plt.title(f"{ticker} Price and Moving Averages")
+plt.legend()
+plt.show()
+
+# Plot Cumulative Returns
+plt.figure(figsize=(14, 7))
+plt.plot(data['Cumulative Market Return'], label='Market Return', alpha=0.75)
+plt.plot(data['Cumulative Strategy Return'], label='Strategy Return', alpha=0.75)
+plt.title("Cumulative Returns")
+plt.legend()
+plt.show()
